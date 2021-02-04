@@ -1,3 +1,5 @@
+import Model.AddressBook;
+import Model.BuddyInfo;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +16,8 @@ public class AddressBookTest {
     public void setUp() throws Exception {
         System.out.println("Setting it up!");
         book1 = new AddressBook();
-        buddy1 = new BuddyInfo("Buddy1", "2525 Colonel by dr.", "6137007777");
-        buddy2 = new BuddyInfo("Buddy2", "2525 Colonel by dr.", "6137007777");
+        buddy1 = new BuddyInfo();
+        buddy2 = new BuddyInfo();
     }
 
 

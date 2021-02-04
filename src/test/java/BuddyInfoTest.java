@@ -1,3 +1,4 @@
+import Model.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,12 +11,7 @@ public class BuddyInfoTest {
     @Before
     public void setUp() throws Exception {
         System.out.println("Setting it up!");
-        buddy1 = new BuddyInfo("Buddy1", "2525 Colonel by dr.", "6137007777");
-    }
-
-    @Test
-    public void getName() {
-        assertEquals("Buddy1", buddy1.getName());
+        buddy1 = new BuddyInfo();
     }
 
     @Test
@@ -25,19 +21,9 @@ public class BuddyInfoTest {
     }
 
     @Test
-    public void getAddress() {
-        assertEquals("2525 Colonel by dr.", buddy1.getAddress());
-    }
-
-    @Test
     public void setAddress() {
         buddy1.setAddress("Fake Address");
         assertEquals("Fake Address", buddy1.getAddress());
-    }
-
-    @Test
-    public void getPhoneNumber() {
-        assertEquals("6137007777", buddy1.getPhoneNumber());
     }
 
     @Test
