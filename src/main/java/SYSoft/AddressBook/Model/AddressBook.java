@@ -1,7 +1,8 @@
-package SYSoft.AddressBook;
+package SYSoft.AddressBook.Model;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.swing.*;
 import java.util.*;
 
 /**
@@ -14,11 +15,15 @@ import java.util.*;
 @Entity
 public class AddressBook {
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+
+    @OneToMany(mappedBy = "addressBook", cascade = CascadeType.PERSIST)
+    @JsonManagedReference
     private List<BuddyInfo> buddyInfos;
+
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     private long id;
+
 
     public AddressBook() {
         buddyInfos = new ArrayList<BuddyInfo>();
@@ -77,14 +82,27 @@ public class AddressBook {
         }
     }
 
-//    @Override
-//    @Transient
-//    public String toString(){
-//        String s = "";
-//        for(Model.BuddyInfo b : buddyInfos){
-//            s += buddyInfos.toString() + "\n";
-//        }
-//        return s;
-//    }
+
+    public List<BuddyInfo> getBuddyInfos() {
+        return buddyInfos;
+    }
+
+    public void setBuddyInfos(List<BuddyInfo> buddyInfos) {
+        this.buddyInfos = buddyInfos;
+    }
+
+
+
+    @Override
+    @Transient
+    public String toString(){
+        String s = "contents of book " + id + ":\n";
+//        s += buddyInfos.toString() + "\n";
+
+        for(BuddyInfo b : buddyInfos){
+            s += b.toString();
+        }
+        return s;
+    }
 
 }

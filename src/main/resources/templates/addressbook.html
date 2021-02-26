@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title th:id="${addressBook.id}">AddressBook Page</title>
+</head>
+<body>
+<h1><span th:text="|AddressBook ${addressBook.id}|">:</span></h1>
+<table>
+    <thead><tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+    </tr></thead>
+
+    <tbody id="addressBookTable"></tbody>
+    <tr th:each="buddyInfo : ${addressBook.buddyInfos}" >
+        <td><span th:text="${buddyInfo.id}"/></td>
+        <td><span th:text="${buddyInfo.name}"/></td>
+        <td><span th:text="${buddyInfo.address}"/></td>
+        <td><span th:text="${buddyInfo.phoneNumber}"/></td>
+        <td>
+            <form th:action="@{/addressbook/delBuddy(bookId=${addressBook.id},buddyId=${buddyInfo.id})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</br>
+</br>
+
+<form id="addBuddyInfo" th:object="${buddyInfo}" th:action="@{/addressbook/addBuddy(id=${addressBook.id})}" method="post">
+    <label for="name">Name:</label></br>
+    <input type="text" id="name" name="name" th:field="*{name}"></br>
+
+    <label for="address">Address:</label></br>
+    <input type="text" id="address" name="address" th:field="*{address}"></br>
+
+    <label for="phoneNumber">Phone Number:</label></br>
+    <input type="text" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}"></br>
+
+    </br>
+    <button type="submit">Add new BuddyInfo</button>
+</form>
+
+<form id="addAddressBook" action="/addressbook/new" method="post">
+    <button type="submit">Create a new AddressBook</button>
+</form>
+
+</body>
+</html>
+

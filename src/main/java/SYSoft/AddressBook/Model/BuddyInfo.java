@@ -1,9 +1,8 @@
-package SYSoft.AddressBook;
+package SYSoft.AddressBook.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 /**
  * @author souheilyazji
@@ -13,10 +12,14 @@ public class BuddyInfo {
 
     private String name, address, phoneNumber;
     @Id
-    @GeneratedValue
+    @GeneratedValue()
     private long id;
 
-    protected BuddyInfo(){
+    @ManyToOne
+    @JsonBackReference
+    private AddressBook addressBook;
+
+    public BuddyInfo(){
 
     }
 
@@ -76,6 +79,14 @@ public class BuddyInfo {
         this.phoneNumber = phoneNumber;
     }
 
+    public AddressBook getAddressBook() {
+        return addressBook;
+    }
+
+    public void setAddressBook(AddressBook addressBook) {
+        this.addressBook = addressBook;
+    }
+
     /**
      *
      * @param obj
@@ -103,11 +114,11 @@ public class BuddyInfo {
     @Transient
     @Override
     public String toString() {
-        return "Model.BuddyInfo{" +
-                "name='" + name + '\'' +
+        return "BuddyInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", id=" + id +
-                '}';
+                "}\n";
     }
 }

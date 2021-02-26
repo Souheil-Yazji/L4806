@@ -1,5 +1,7 @@
 package SYSoft.AddressBook;
 
+import SYSoft.AddressBook.Model.AddressBook;
+import SYSoft.AddressBook.Model.BuddyInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

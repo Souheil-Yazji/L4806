@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <meta charset="UTF-8">
+    <title>AddressBook</title>
+</head>
+<body>
+
+
+
+<form id="addBuddyInfo" method="post">
+    <label for="bookId">bookId:</label></br>
+    <input type="text" id="bookId" name="bookId"></br>
+
+    <label for="name">Name:</label></br>
+    <input type="text" id="name" name="name"></br>
+
+    <label for="address">Address:</label></br>
+    <input type="text" id="address" name="address"></br>
+
+    <label for="phoneNumber">Phone Number:</label></br>
+    <input type="text" id="phoneNumber" name="phoneNumber"></br>
+
+    </br>
+    <button type="submit" >Add new BuddyInfo</button>
+</form>
+<br/>
+<br/>
+<div id="addressbookList">AddressBook List:</div>
+<br/>
+<br/>
+<div id="bookContents">Contents</div>
+<table>
+    <thead><tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+    </tr></thead>
+
+    <tbody id="addressBookTable"></tbody>
+</table>
+
+<button id="createAddressBook" onclick="AddressBooks.addAddressbook()">Create Address Book</button>
+
+
+</body>
+</html>

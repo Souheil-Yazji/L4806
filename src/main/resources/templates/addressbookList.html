@@ -1,0 +1,23 @@
+<html xmlns:th="http://thymeleaf.org"  lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>AddressBook Page</title>
+</head>
+<body>
+    <h1>AddressBooks:</h1>
+    <div id="addressBookList">
+        <p th:each="addressBook : ${addressBooks}" >
+            <a th:href="@{/addressbook/get(id=${addressBook.id})}">
+                <span th:text="|AddressBook ${addressBook.id}|"></span>
+            </a>
+        </p>
+    </div>
+    </br>
+    </br>
+
+    <form id="addAddressBook" action="/addressbook/new" method="post">
+        <button type="submit">Create a new AddressBook</button>
+    </form>
+
+</body>
+</html>
