@@ -1,5 +1,5 @@
 # L4806
-Sysc4806 Lab
+Sysc4806 Lab - development of a web app using Spring Boot with an MVC model.
 
 https://travis-ci.com/github/Souheil-Yazji/L4806/builds/216881695  
 https://addressbook4806l.herokuapp.com/
